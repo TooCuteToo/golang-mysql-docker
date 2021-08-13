@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  e-commerce:
+    container_name: e-commerce-angular
+    ports: 
+      - 4200:80
+    build:
+      context: ../e-commerce
+  golang-sql:
+    depends_on: 
+      - mysql
+    build:
+      context: .
+    container_name: rest-server
+    hostname: rest-server
+    networks:
+      - product-app
+    ports:
+      - 8080:8080
+    environment:
+      - DB_USER=${DB_USER:-root}
+      - DB_PASSWORD=${DB_PASSWORD:?database password not set}
+      - DB_ADDRESS=${DB_ADDRESS:-bao}
+      - DB_DATABASE=${DB_DATABASE:-products}
+    deploy:
+      restart_policy:
+        condition: on-failure
+  mysql:
+    image: mysql:5.7
+    container_name: product_sql
+    hostname: db
+    networks:
+      - product-app
+    volumes:
+      - product-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: products
+
+volumes:
+  product-mysql-data:
+
+networks:
+  product-app:
+    driver: bridge

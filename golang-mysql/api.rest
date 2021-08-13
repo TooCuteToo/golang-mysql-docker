@@ -1,0 +1,20 @@
+POST http://localhost:8080/products
+###
+
+GET http://localhost:8080/products
+###
+
+GET http://localhost:8080/products/2
+###
+
+DELETE http://localhost:8080/products/5
+###
+
+PUT http://localhost:8080/products/2
+Content-Type: "application/json"
+
+{
+  "name": "bao",
+  "description": "lalalal",
+  "price": 23.99
+}

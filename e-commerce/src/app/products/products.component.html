@@ -1,0 +1,30 @@
+<div class="products">
+  <div class="container">
+    <div class="row">
+      <div *ngIf="currentPath === '/home'" class="col-md-12">
+        <div class="section-heading">
+          <h2>Latest Products</h2>
+          <a>view all products <i class="fa fa-angle-right"></i></a>
+        </div>
+      </div>
+
+      <div *ngIf="currentPath === '/products'" class="col-md-12">
+        <div class="filters">
+          <ul>
+            <li class="active" data-filter="*">All Products</li>
+            <li data-filter=".des">Featured</li>
+            <li data-filter=".dev">Flash Deals</li>
+            <li data-filter=".gra">Last Minute</li>
+          </ul>
+        </div>
+      </div>
+
+      <app-product
+        class="col-md-4"
+        *ngFor="let product of products"
+        [product]="product"
+        (delete)="deleteProduct($event)"
+      ></app-product>
+    </div>
+  </div>
+</div>

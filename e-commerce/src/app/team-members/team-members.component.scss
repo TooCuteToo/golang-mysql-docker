@@ -1,0 +1,69 @@
+
+.team-members {
+	margin-top: 100px;
+}
+
+.team-member {
+	border: 1px solid #eee;
+	margin-bottom: 30px;
+}
+
+.team-member img {
+	width: 100%;
+	overflow: hidden;
+}
+
+.team-member .down-content {
+	padding: 30px;
+	text-align: center;
+}
+
+.team-member .thumb-container {
+	position: relative;
+}
+
+.team-member .thumb-container .hover-effect {
+	position: absolute;
+	background-color: rgba(243,63,63,0.9);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .5s;
+}
+
+.team-member .thumb-container .hover-effect .hover-content {
+	position: absolute;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.team-member .thumb-container .hover-effect .hover-content ul.social-icons li a:hover {
+	background-color: #fff;
+	color: #f33f3f;
+}
+
+.team-member:hover .hover-effect {
+	visibility: visible;
+	opacity: 1;
+}
+
+.team-member .down-content h4 {
+	font-size: 17px;
+	color: #1a6692;
+	margin-bottom: 8px;
+}
+
+.team-member .down-content span {
+	display: block;
+	font-size: 13px;
+	color: #f33f3f;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+

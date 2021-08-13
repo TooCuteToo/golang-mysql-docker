@@ -1,0 +1,20 @@
+<div>
+  <div class="product-item">
+    <a routerLink="/products/{{ product.id }}"
+      ><img src="{{ product.image }}" alt=""
+    /></a>
+    <div class="down-content">
+      <a routerLink="/products/{{ product.id }}"
+        ><h4>{{ product.name }}</h4></a
+      >
+      <h6>{{ product.price | currency }}</h6>
+      <p>
+        {{ product.description }}
+      </p>
+      <ul class="stars">
+        <li *ngFor="let i of rates"><i class="fa fa-star"></i></li>
+      </ul>
+      <button class="btn btn-danger" (click)="click(product)">X</button>
+    </div>
+  </div>
+</div>

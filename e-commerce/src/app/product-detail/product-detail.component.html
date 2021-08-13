@@ -1,0 +1,35 @@
+<form [formGroup]="checkoutForm" class="m-3" (ngSubmit)="onSubmit()">
+  <div class="my-3">
+    <label for="name"> Name </label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      [(ngModel)]="product.name"
+    />
+  </div>
+
+  <div class="my-3">
+    <label for="desc"> Desc </label>
+    <input
+      id="desc"
+      type="text"
+      formControlName="desc"
+      [(ngModel)]="product.description"
+    />
+  </div>
+
+  <div class="my-3">
+    <label for="price"> Price </label>
+    <input
+      id="price"
+      type="text"
+      formControlName="price"
+      [(ngModel)]="product.price"
+    />
+  </div>
+
+  <button class="button" type="submit">Purchase</button>
+
+  {{ log() }}
+</form>
